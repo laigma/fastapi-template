@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+sqlalchemy = "*"
+psycopg2 = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
+
+[scripts]
+dev = "bash -c 'export APIENV=development && python src/run.py'"
+int = "bash -c 'export APIENV=integration && python src/run.py'"
+prod = "bash -c 'export APIENV=production && python src/run.py'"
+wdev = "wdev.bat"
+wint = "wint.bat"
+wprod = "wprod.bat"

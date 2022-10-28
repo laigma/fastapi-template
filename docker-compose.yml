@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  fastapi-template:
+    container_name: fastapi-template
+    ports:
+      - '8081:8081'
+    volumes:
+      - '/etc/timezone:/etc/timezone:ro'
+      - '/etc/localtime:/etc/localtime:ro'
+    image: fastapi-template:1.0.0
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 90m
+        max-file: '3'
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    # environment:
+    #   - APIENV = production
